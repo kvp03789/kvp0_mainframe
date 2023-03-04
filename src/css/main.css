@@ -1,0 +1,74 @@
+body {
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.online-image{
+  height: 50px;
+  width: auto;
+  box-shadow: 0px 0px 10px 5px green;
+}
+
+#rain-canvas {
+  position: absolute;
+}
+
+.logo-image {
+  border: 2px solid grey
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TEXT BLINKING*/
+.crt {
+  filter: invert(66%) sepia(77%) saturate(477%) hue-rotate(165deg) brightness(100%) contrast(102%);
+
+}
+
+.crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.brightness {
+    -webkit-animation: brightness .08s infinite;
+    transition-timing-function:cubic-bezier(0.455, 0.03, 0.515, 0.955)
+}
+
+@-webkit-keyframes brightness {
+  0%, 100% {-webkit-filter: brightness(3); }
+  20% {-webkit-filter: brightness(10); }
+  50% { -webkit-filter: brightness(1); }
+}
