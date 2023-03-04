@@ -17,7 +17,7 @@ export const createRain = () => {
   let logoImageY = rect.top - (logoImageH/2)
 
   let gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-  gradient.addColorStop(0, '#b3f3f7');
+  gradient.addColorStop(0, '#90f797');
   gradient.addColorStop(1, 'white');
   ctx.strokeStyle = gradient;
 
@@ -49,7 +49,7 @@ export const createRain = () => {
       ctx.moveTo(p.x, p.y);
       ctx.lineTo(p.x + p.l * p.xs, p.y + p.l * p.ys);
       ctx.stroke();
-      ctx.clearRect(logoImageX, logoImageY, logoImageW, logoImageH)
+      //ctx.clearRect(logoImageX, logoImageY, logoImageW, logoImageH)
     }
     move();
   }
@@ -64,7 +64,7 @@ export const createRain = () => {
         p.y = -20;
       }
     }
-    drawSplash()
+    //drawSplash()
     
   }
 
@@ -73,7 +73,12 @@ export const createRain = () => {
     let max = logoImageX + logoImageW;
     let min = logoImageX; 
     ctx.fillStyle = '#ffffff';
-    ctx.fillRect(Math.floor(Math.random() * (max - min + 1) + min), logoImageY - 10, 8, 3);
+    ctx.fillRect(Math.floor(Math.random() * (max - min + 1) + min), logoImageY - 10, 10, 5);
+    let random = Math.floor(Math.random * 9)
+    if(random > 3){
+      ctx.fillStyle = '#ff0000'
+      ctx.fillRect(Math.floor(Math.random() * (max - min + 1) + min) + 3, logoImageY - 15, 3, 8);
+    }
   }
 
   window.addEventListener("resize", handleResize);
