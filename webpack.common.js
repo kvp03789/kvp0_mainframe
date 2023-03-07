@@ -27,6 +27,10 @@ module.exports = {
             outputPath: "img"
           }
         }
+      },
+      {
+        test: /\.(ttf)$/i,
+        type: 'asset/resource',
       }
     ]
   }

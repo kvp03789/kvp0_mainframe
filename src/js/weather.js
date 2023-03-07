@@ -1,4 +1,7 @@
 import {makeEle, getCurrentTime, removeAllChildElements} from './utils.js'
+import Night_ClearSky from '../img/night_clearsky_halfmoon.png';
+import Night_Cloudy from '../img/night_cloudy_fullmoon.png';
+
 
 export const getWeather = () => {
 
@@ -15,6 +18,7 @@ export const getWeather = () => {
   currentTimePara.innerText = getCurrentTime();
   const mainBody = document.querySelector(".main-container");
   const weatherImg = new Image();
+  weatherImg.classList.add("weather-img")
 
   weatherDiv.append(weatherDescriptionPara, weatherImg, weatherTempPara, currentTimePara)
   mainBody.append(weatherDiv);
@@ -32,7 +36,8 @@ export const getWeather = () => {
       weatherDescriptionPara.innerText = currentWeatherText;
       weatherTempPara.innerText = response.main.temp + "°F";
       let weatherIconSrc = response.weather[0].icon
-      weatherImg.src = `http://openweathermap.org/img/wn/${weatherIconSrc}@2x.png`
+      //weatherImg.src = `http://openweathermap.org/img/wn/${weatherIconSrc}@2x.png`
+      weatherImg.src = Night_ClearSky;
     })
     .catch(function(err){
       console.log(err)
