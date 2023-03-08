@@ -1,32 +1,37 @@
-import Block_Logo from '../img/block_logo.png';
 import "../css/main.css";
 import {createRain, handleResize} from './rain.js'
-import {getWeather} from './weather.js'
-import { makeEle } from './utils';
 import {makeMove} from './cursor-effect'
+import {addDomStuff} from './dom-stuff.js'
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
-const divContainer = document.createElement("div");
-const aboutContainer = makeEle("div", "section-container");
-const aboutHeading = makeEle("h1", "section-header");
-const aboutPara = makeEle("p", "section-para");
-const mainBody = document.querySelector(".main-container");
-const blockLogo = document.createElement("img");
 
-blockLogo.src = Block_Logo;
-blockLogo.classList.add("logo-image");
-blockLogo.classList.add("crt");
-blockLogo.classList.add("brightness");
-divContainer.classList.add("logo-container")
-aboutHeading.innerText = "about";
-aboutPara.innerText = "Hi i'm kvp0! this is my little corner of the internet where i'm going to post all of my dev projects, art, music, and just anything i wanna share with people :3 please enjoy ur stay"
+const firebaseConfig = {
+  apiKey: "AIzaSyD1QbxAk-FxBRjQYnq2pSnYPxJ7BxE4ZDI",
+  authDomain: "weblounge-fbf01.firebaseapp.com",
+  projectId: "weblounge-fbf01",
+  storageBucket: "weblounge-fbf01.appspot.com",
+  messagingSenderId: "167049559142",
+  appId: "1:167049559142:web:53b9f8d58f59d4e38b81a7",
+  measurementId: "G-9QRFWF32ZL"
+};
 
-divContainer.append(blockLogo);
-aboutContainer.append(aboutHeading, aboutPara)
-mainBody.append(divContainer, aboutContainer);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+
+console.log("hello firebase")
+
+
+
+
 
 //window.addEventListener('DOMContentLoaded', createRain);
-getWeather();
 
+window.addEventListener('DOMContentLoaded', addDomStuff)
+
+//CURSOR EVENT
 document.addEventListener("click", (e) => {makeMove(e)});
 
 

@@ -21,7 +21,7 @@ export const getWeather = () => {
   weatherImg.classList.add("weather-img")
 
   weatherDiv.append(weatherDescriptionPara, weatherImg, weatherTempPara, currentTimePara)
-  mainBody.append(weatherDiv);
+  
 
 
   const key = 'c96c7fb5e20d240b9c753b8516fdbd4d';
@@ -42,4 +42,6 @@ export const getWeather = () => {
     .catch(function(err){
       console.log(err)
     })
+
+    return weatherDiv
 }
